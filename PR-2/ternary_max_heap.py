@@ -62,15 +62,23 @@ class TernaryHeap:
             if self.get(p) < self.get(index):
                 self.swap(p, index)
             index = p
+
+    def inorder_traversal(self, i=0):
+        if i < self.size():
+            self.inorder_traversal(self.left(i))
+            print(self.get(i), end=" ")
+            self.inorder_traversal(self.mid(i))
+            self.inorder_traversal(self.right(i))
  
  
 theap = TernaryHeap()
  
 print('Menu (this assumes no duplicate keys)')
-print('insert <data>')
-print('max get')
-print('max extract')
-print('quit')
+print('[1] insert <data>')
+print('[2] max get')
+print('[3] max extract')
+print('[4] traverse')
+print('[5] quit')
  
 while True:
     do = input('What would you like to do? ').split()
@@ -85,6 +93,8 @@ while True:
             print('Maximum value: {}'.format(theap.get_max()))
         elif suboperation == 'extract':
             print('Maximum value removed: {}'.format(theap.extract_max()))
+    elif operation == 'traverse':
+        theap.inorder_traversal()
  
     elif operation == 'quit':
         break
