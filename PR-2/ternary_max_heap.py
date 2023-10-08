@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+import networkx as nx
+
 class TernaryHeap:
     def __init__(self):
         self.items = []
@@ -69,6 +72,22 @@ class TernaryHeap:
             print(self.get(i), end=" ")
             self.inorder_traversal(self.mid(i))
             self.inorder_traversal(self.right(i))
+
+    def draw_heap(self):
+        G = nx.Graph()
+        labels = {}
+
+        for i in range(self.size()):
+            parent = self.parent(i)
+            if i == 0:
+                labels[i] = self.get(i)
+            else:
+                labels[i] = self.get(i)
+                G.add_edge(parent, i)
+
+        pos = nx.spring_layout(G)
+        nx.draw(G, pos, with_labels=True, labels=labels, node_size=5000, node_color='lightblue', font_size=10)
+        plt.show()
  
  
 theap = TernaryHeap()
@@ -95,6 +114,8 @@ while True:
             print('Maximum value removed: {}'.format(theap.extract_max()))
     elif operation == 'traverse':
         theap.inorder_traversal()
+    elif operation == 'draw':
+        theap.draw_heap()
  
     elif operation == 'quit':
         break
