@@ -104,10 +104,28 @@ class TernaryHeap:
 
         # Lakukan heapify turun untuk mempertahankan properti heap
         self.max_heapify(i)
+
+    def percolate_up(self, i):
+        while i > 0:
+            parent = self.parent(i)
+            if self.get(i) > self.get(parent):
+                self.swap(i, parent)
+                i = parent
+            else:
+                break
+
+    def combine_heap(self, other_heap):
+        # Gabungkan elemen-elemen dari other_heap ke self.items
+        self.items.extend(other_heap.items)
+
+        # Lakukan heapify up untuk mempertahankan properti heap
+        for i in range(self.size() - 1, -1, -1):
+            self.percolate_up(i)
+
+theap1 = TernaryHeap()
+theap2 = TernaryHeap()
  
- 
-theap = TernaryHeap()
- 
+print('HEAP 1')
 print('Menu (this assumes no duplicate keys)')
 print('[1] insert <data>')
 print('[2] delete <data>')
@@ -123,20 +141,57 @@ while True:
     operation = do[0].strip().lower()
     if operation == 'insert':
         data = int(do[1])
-        theap.insert(data)
+        theap1.insert(data)
     elif operation == 'delete':
         data = int(do[1])
-        theap.delete_element(data)
+        theap1.delete_element(data)
     elif operation == 'max':
         suboperation = do[1].strip().lower()
         if suboperation == 'get':
-            print('Maximum value: {}'.format(theap.get_max()))
+            print('Maximum value: {}'.format(theap1.get_max()))
         elif suboperation == 'extract':
-            print('Maximum value removed: {}'.format(theap.extract_max()))
+            print('Maximum value removed: {}'.format(theap1.extract_max()))
     elif operation == 'traverse':
-        theap.inorder_traversal()
+        theap1.inorder_traversal()
     elif operation == 'draw':
-        theap.draw_heap()
+        theap1.draw_heap()
+ 
+    elif operation == 'quit':
+        break
+
+print('HEAP 2')
+print('Menu (this assumes no duplicate keys)')
+print('[1] insert <data>')
+print('[2] delete <data>')
+print('[3] max get')
+print('[4] max extract')
+print('[5] traverse')
+print('[6] draw')
+print('[7] combine')
+print('[8] quit')
+
+while True:
+    do = input('What would you like to do? ').split()
+ 
+    operation = do[0].strip().lower()
+    if operation == 'insert':
+        data = int(do[1])
+        theap2.insert(data)
+    elif operation == 'delete':
+        data = int(do[1])
+        theap2.delete_element(data)
+    elif operation == 'max':
+        suboperation = do[1].strip().lower()
+        if suboperation == 'get':
+            print('Maximum value: {}'.format(theap2.get_max()))
+        elif suboperation == 'extract':
+            print('Maximum value removed: {}'.format(theap2.extract_max()))
+    elif operation == 'traverse':
+        theap2.inorder_traversal()
+    elif operation == 'draw':
+        theap2.draw_heap()
+    elif operation == 'combine':
+        theap2.combine_heap(theap1)
  
     elif operation == 'quit':
         break
