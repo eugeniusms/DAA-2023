@@ -88,16 +88,34 @@ class TernaryHeap:
         pos = nx.spring_layout(G)
         nx.draw(G, pos, with_labels=True, labels=labels, node_size=5000, node_color='lightblue', font_size=10)
         plt.show()
+
+    def delete_element(self, x):
+        if x not in self.items:
+            print(f"{x} not found in the heap.")
+            return
+
+        # Cari indeks x
+        i = self.items.index(x)
+        last_element = self.items[-1]
+
+        # Gantikan elemen x dengan elemen terakhir
+        self.items[i] = last_element
+        del self.items[-1]
+
+        # Lakukan heapify turun untuk mempertahankan properti heap
+        self.max_heapify(i)
  
  
 theap = TernaryHeap()
  
 print('Menu (this assumes no duplicate keys)')
 print('[1] insert <data>')
-print('[2] max get')
-print('[3] max extract')
-print('[4] traverse')
-print('[5] quit')
+print('[2] delete <data>')
+print('[3] max get')
+print('[4] max extract')
+print('[5] traverse')
+print('[6] draw')
+print('[7] quit')
  
 while True:
     do = input('What would you like to do? ').split()
@@ -106,6 +124,9 @@ while True:
     if operation == 'insert':
         data = int(do[1])
         theap.insert(data)
+    elif operation == 'delete':
+        data = int(do[1])
+        theap.delete_element(data)
     elif operation == 'max':
         suboperation = do[1].strip().lower()
         if suboperation == 'get':
