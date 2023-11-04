@@ -18,12 +18,67 @@ class RandomizedQsort {
         out = new PrintWriter(outputStream);
 
 		// Kecil Random
-		int[] arr = new int[20000];
-		for (int i = 0; i < 20000; i++) {
-			arr[i] = in.nextInt();
+		int[] arr1 = new int[200];
+		for (int i = 0; i < 200; i++) {
+			arr1[i] = in.nextInt();
 		}
-		sort(arr, 0, 20000-1); 
-		printArray(arr);
+		sort(arr1, 0, 200-1); 
+
+		// Kecil Sorted
+		int[] arr2 = new int[200];
+		for (int i = 0; i < 200; i++) {
+			arr2[i] = in.nextInt();
+		}
+		sort(arr2, 0, 200-1); 
+
+		// Kecil Reversed
+		int[] arr3 = new int[200];
+		for (int i = 0; i < 200; i++) {
+			arr3[i] = in.nextInt();
+		}
+		sort(arr3, 0, 200-1); 
+
+		// Sedang Random
+		int[] arr4 = new int[2000];
+		for (int i = 0; i < 200; i++) {
+			arr4[i] = in.nextInt();
+		}
+		sort(arr4, 0, 2000-1); 
+
+		// Sedang Sorted
+		int[] arr5 = new int[2000];
+		for (int i = 0; i < 200; i++) {
+			arr5[i] = in.nextInt();
+		}
+		sort(arr5, 0, 2000-1); 
+
+		// Sedang Reversed
+		int[] arr6 = new int[2000];
+		for (int i = 0; i < 200; i++) {
+			arr6[i] = in.nextInt();
+		}
+		sort(arr6, 0, 2000-1); 
+
+		// Besar Random
+		int[] arr7 = new int[20000];
+		for (int i = 0; i < 200; i++) {
+			arr7[i] = in.nextInt();
+		}
+		sort(arr7, 0, 20000-1); 
+
+		// Besar Sorted
+		int[] arr8 = new int[20000];
+		for (int i = 0; i < 200; i++) {
+			arr8[i] = in.nextInt();
+		}
+		sort(arr8, 0, 20000-1); 
+
+		// Besar Reversed
+		int[] arr8 = new int[20000];
+		for (int i = 0; i < 200; i++) {
+			arr8[i] = in.nextInt();
+		}
+		sort(arr8, 0, 20000-1); 
 	} 
 
 	// This Function helps in calculating
