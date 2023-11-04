@@ -19,14 +19,14 @@ class RandomizedQsort {
 		Runtime runtime = Runtime.getRuntime();
         
 		// KECIL RANDOM
-		// Measure memory usage before sorting
-		System.gc();
-        long beforeUsedMemory1 = runtime.totalMemory() - runtime.freeMemory();
 		// Input data
 		int[] arr1 = new int[200];
 		for (int i = 0; i < 200; i++) {
 			arr1[i] = in.nextInt();
 		}
+		// Measure memory usage before sorting
+		System.gc();
+        long beforeUsedMemory1 = runtime.totalMemory() - runtime.freeMemory();
 		// Measure execution time
         long startTime1 = System.nanoTime();
         sort(arr1, 0, 200-1); 
@@ -38,13 +38,13 @@ class RandomizedQsort {
         long executionTime1 = (endTime1 - startTime1);
 
 		// Kecil Sorted
-		// Measure memory usage before sorting
-		System.gc();
-        long beforeUsedMemory2 = runtime.totalMemory() - runtime.freeMemory();
 		int[] arr2 = new int[200];
 		for (int i = 0; i < 200; i++) {
 			arr2[i] = in.nextInt();
 		}
+		// Measure memory usage before sorting
+		System.gc();
+        long beforeUsedMemory2 = runtime.totalMemory() - runtime.freeMemory();
 		// Measure execution time
         long startTime2 = System.nanoTime();
         sort(arr2, 0, 200-1); 
@@ -56,13 +56,13 @@ class RandomizedQsort {
         long executionTime2 = (endTime2 - startTime2); 
 
 		// Kecil Reversed
-		// Measure memory usage before sorting
-		System.gc();
-        long beforeUsedMemory3 = runtime.totalMemory() - runtime.freeMemory();
 		int[] arr3 = new int[200];
 		for (int i = 0; i < 200; i++) {
 			arr3[i] = in.nextInt();
 		}
+		// Measure memory usage before sorting
+		System.gc();
+        long beforeUsedMemory3 = runtime.totalMemory() - runtime.freeMemory();
 		// Measure execution time
         long startTime3 = System.nanoTime();
         sort(arr3, 0, 200-1); 
@@ -74,13 +74,13 @@ class RandomizedQsort {
         long executionTime3 = (endTime3 - startTime3); 
 
 		// Sedang Random
-		// Measure memory usage before sorting
-		System.gc();
-        long beforeUsedMemory4 = runtime.totalMemory() - runtime.freeMemory();
 		int[] arr4 = new int[2000];
 		for (int i = 0; i < 2000; i++) {
 			arr4[i] = in.nextInt();
 		}
+		// Measure memory usage before sorting
+		System.gc();
+        long beforeUsedMemory4 = runtime.totalMemory() - runtime.freeMemory();
 		// Measure execution time
         long startTime4 = System.nanoTime();
         sort(arr4, 0, 2000-1); 
@@ -92,13 +92,13 @@ class RandomizedQsort {
         long executionTime4 = (endTime4 - startTime4); 
 
 		// Sedang Sorted
-		// Measure memory usage before sorting
-		System.gc();
-        long beforeUsedMemory5 = runtime.totalMemory() - runtime.freeMemory();
 		int[] arr5 = new int[2000];
 		for (int i = 0; i < 2000; i++) {
 			arr5[i] = in.nextInt();
 		}
+		// Measure memory usage before sorting
+		System.gc();
+        long beforeUsedMemory5 = runtime.totalMemory() - runtime.freeMemory();
 		// Measure execution time
         long startTime5 = System.nanoTime();
         sort(arr5, 0, 2000-1); 
@@ -110,13 +110,13 @@ class RandomizedQsort {
         long executionTime5 = (endTime5 - startTime5); 
 
 		// Sedang Reversed
-		// Measure memory usage before sorting
-		System.gc();
-        long beforeUsedMemory6 = runtime.totalMemory() - runtime.freeMemory();
 		int[] arr6 = new int[2000];
 		for (int i = 0; i < 2000; i++) {
 			arr6[i] = in.nextInt();
 		}
+		// Measure memory usage before sorting
+		System.gc();
+        long beforeUsedMemory6 = runtime.totalMemory() - runtime.freeMemory();
 		// Measure execution time
         long startTime6 = System.nanoTime();
         sort(arr6, 0, 2000-1); 
@@ -128,13 +128,13 @@ class RandomizedQsort {
         long executionTime6 = (endTime6 - startTime6); 
 
 		// Besar Random
-		// Measure memory usage before sorting
-		System.gc();
-        long beforeUsedMemory7 = runtime.totalMemory() - runtime.freeMemory();
 		int[] arr7 = new int[20000];
 		for (int i = 0; i < 20000; i++) {
 			arr7[i] = in.nextInt();
 		}
+		// Measure memory usage before sorting
+		System.gc();
+        long beforeUsedMemory7 = runtime.totalMemory() - runtime.freeMemory();
 		// Measure execution time
         long startTime7 = System.nanoTime();
         sort(arr7, 0, 20000-1); 
@@ -146,13 +146,13 @@ class RandomizedQsort {
         long executionTime7 = (endTime7 - startTime7);
 
 		// Besar Sorted
-		// Measure memory usage before sorting
-		System.gc();
-        long beforeUsedMemory8 = runtime.totalMemory() - runtime.freeMemory();
 		int[] arr8 = new int[20000];
 		for (int i = 0; i < 20000; i++) {
 			arr8[i] = in.nextInt();
 		}
+		// Measure memory usage before sorting
+		System.gc();
+        long beforeUsedMemory8 = runtime.totalMemory() - runtime.freeMemory();
 		// Measure execution time
         long startTime8 = System.nanoTime();
         sort(arr8, 0, 20000-1); 
@@ -164,13 +164,13 @@ class RandomizedQsort {
         long executionTime8 = (endTime8 - startTime8);
 
 		// Besar Reversed
-		// Measure memory usage before sorting
-		System.gc();
-        long beforeUsedMemory9 = runtime.totalMemory() - runtime.freeMemory();
 		int[] arr9 = new int[20000];
 		for (int i = 0; i < 20000; i++) {
 			arr9[i] = in.nextInt();
 		}
+		// Measure memory usage before sorting
+		System.gc();
+        long beforeUsedMemory9 = runtime.totalMemory() - runtime.freeMemory();
 		// Measure execution time
         long startTime9 = System.nanoTime();
         sort(arr9, 0, 20000-1); 
