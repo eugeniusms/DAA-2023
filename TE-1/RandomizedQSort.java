@@ -16,13 +16,26 @@ class RandomizedQsort {
         in = new InputReader(inputStream);
         OutputStream outputStream = System.out;
         out = new PrintWriter(outputStream);
-
-		// Kecil Random
+		Runtime runtime = Runtime.getRuntime();
+        
+		// KECIL RANDOM
+		// Measure memory usage before sorting
+		System.gc();
+        long beforeUsedMemory1 = runtime.totalMemory() - runtime.freeMemory();
+		// Input data
 		int[] arr1 = new int[200];
 		for (int i = 0; i < 200; i++) {
 			arr1[i] = in.nextInt();
 		}
-		sort(arr1, 0, 200-1); 
+		// Measure execution time
+        long startTime1 = System.nanoTime();
+        sort(arr1, 0, 200-1); 
+        long endTime1 = System.nanoTime();
+		// Measure memory usage after sorting
+        System.gc();
+        long afterUsedMemory1 = runtime.totalMemory() - runtime.freeMemory();
+        // Calculate execution time in milliseconds
+        long executionTime1 = (endTime1 - startTime1) / 1000000;
 
 		// Kecil Sorted
 		int[] arr2 = new int[200];
@@ -40,45 +53,67 @@ class RandomizedQsort {
 
 		// Sedang Random
 		int[] arr4 = new int[2000];
-		for (int i = 0; i < 200; i++) {
+		for (int i = 0; i < 2000; i++) {
 			arr4[i] = in.nextInt();
 		}
 		sort(arr4, 0, 2000-1); 
 
 		// Sedang Sorted
 		int[] arr5 = new int[2000];
-		for (int i = 0; i < 200; i++) {
+		for (int i = 0; i < 2000; i++) {
 			arr5[i] = in.nextInt();
 		}
 		sort(arr5, 0, 2000-1); 
 
 		// Sedang Reversed
 		int[] arr6 = new int[2000];
-		for (int i = 0; i < 200; i++) {
+		for (int i = 0; i < 2000; i++) {
 			arr6[i] = in.nextInt();
 		}
 		sort(arr6, 0, 2000-1); 
 
 		// Besar Random
+		// Measure memory usage before sorting
+		System.gc();
+        long beforeUsedMemory7 = runtime.totalMemory() - runtime.freeMemory();
 		int[] arr7 = new int[20000];
-		for (int i = 0; i < 200; i++) {
+		for (int i = 0; i < 20000; i++) {
 			arr7[i] = in.nextInt();
 		}
-		sort(arr7, 0, 20000-1); 
+		// Measure execution time
+        long startTime7 = System.nanoTime();
+        sort(arr7, 0, 20000-1); 
+        long endTime7 = System.nanoTime();
+		// Measure memory usage after sorting
+        System.gc();
+        long afterUsedMemory7 = runtime.totalMemory() - runtime.freeMemory();
+        // Calculate execution time in milliseconds
+        long executionTime7 = (endTime7 - startTime7) / 1000000;
 
 		// Besar Sorted
 		int[] arr8 = new int[20000];
-		for (int i = 0; i < 200; i++) {
+		for (int i = 0; i < 20000; i++) {
 			arr8[i] = in.nextInt();
 		}
 		sort(arr8, 0, 20000-1); 
 
 		// Besar Reversed
-		int[] arr8 = new int[20000];
-		for (int i = 0; i < 200; i++) {
-			arr8[i] = in.nextInt();
+		int[] arr9 = new int[20000];
+		for (int i = 0; i < 20000; i++) {
+			arr9[i] = in.nextInt();
 		}
-		sort(arr8, 0, 20000-1); 
+		sort(arr9, 0, 20000-1); 
+
+		// Output results
+		System.out.println("KECIL RANDOM");
+        System.out.println("Execution Time: " + executionTime1 + " ms");
+        System.out.println("Memory Before: " + beforeUsedMemory1 + " bytes");
+        System.out.println("Memory After: " + afterUsedMemory1 + " bytes");
+		// Output results
+		System.out.println("BESAR RANDOM");
+        System.out.println("Execution Time: " + executionTime7 + " ms");
+        System.out.println("Memory Before: " + beforeUsedMemory7 + " bytes");
+        System.out.println("Memory After: " + afterUsedMemory7 + " bytes");
 	} 
 
 	// This Function helps in calculating
