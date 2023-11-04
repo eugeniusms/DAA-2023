@@ -1,6 +1,22 @@
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.*;
+
 public class ClusteredBinaryInsertionSort {
+    private static InputReader in;
+    static PrintWriter out;
+
     // Driver Code
     public static void main(String[] args) {
+        InputStream inputStream = System.in;
+        in = new InputReader(inputStream);
+        OutputStream outputStream = System.out;
+        out = new PrintWriter(outputStream);
+
         int[] aList = {5, 2, 9, 1, 5, 6}; // Contoh data angka yang akan diurutkan
 
         System.out.println("Data sebelum diurutkan:");
@@ -68,5 +84,30 @@ public class ClusteredBinaryInsertionSort {
             System.out.print(num + " ");
         }
         System.out.println();
+    }
+
+    static class InputReader {
+        public BufferedReader reader;
+        public StringTokenizer tokenizer;
+
+        public InputReader(InputStream stream) {
+            reader = new BufferedReader(new InputStreamReader(stream), 32768);
+            tokenizer = null;
+        }
+
+        public String next() {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                try {
+                    tokenizer = new StringTokenizer(reader.readLine());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            return tokenizer.nextToken();
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(next());
+        }
     }
 }

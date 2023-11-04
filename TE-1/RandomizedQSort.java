@@ -1,16 +1,29 @@
-import java.util.*; 
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.*;
 
 class RandomizedQsort {	 
+	private static InputReader in;
+    static PrintWriter out;
+
 	// Driver Code 
-	public static void main(String args[]) 
-	{ 
-		int arr[] = {10, 7, 8, 9, 1, 5}; 
-		int n = arr.length; 
+	public static void main(String args[])  { 
+		InputStream inputStream = System.in;
+        in = new InputReader(inputStream);
+        OutputStream outputStream = System.out;
+        out = new PrintWriter(outputStream);
 
-		sort(arr, 0, n-1); 
-
-		System.out.println("Sorted array"); 
-		printArray(arr); 
+		// Kecil Random
+		int[] arr = new int[20000];
+		for (int i = 0; i < 20000; i++) {
+			arr[i] = in.nextInt();
+		}
+		sort(arr, 0, 20000-1); 
+		printArray(arr);
 	} 
 
 	// This Function helps in calculating
@@ -91,4 +104,29 @@ class RandomizedQsort {
 			System.out.print(arr[i]+" "); 
 		System.out.println(); 
 	} 
+
+	static class InputReader {
+        public BufferedReader reader;
+        public StringTokenizer tokenizer;
+
+        public InputReader(InputStream stream) {
+            reader = new BufferedReader(new InputStreamReader(stream), 32768);
+            tokenizer = null;
+        }
+
+        public String next() {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                try {
+                    tokenizer = new StringTokenizer(reader.readLine());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            return tokenizer.nextToken();
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(next());
+        }
+    }
 }
