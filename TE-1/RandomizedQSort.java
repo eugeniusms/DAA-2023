@@ -1,9 +1,18 @@
-// Java program to illustrate
-// Randomised Quick Sort 
 import java.util.*; 
 
-class RandomizedQsort 
-{	 
+class RandomizedQsort {	 
+	// Driver Code 
+	public static void main(String args[]) 
+	{ 
+		int arr[] = {10, 7, 8, 9, 1, 5}; 
+		int n = arr.length; 
+
+		sort(arr, 0, n-1); 
+
+		System.out.println("Sorted array"); 
+		printArray(arr); 
+	} 
+
 	// This Function helps in calculating
 	// random numbers between low(inclusive)
 	// and high(inclusive) 
@@ -55,7 +64,6 @@ class RandomizedQsort
 		return i+1; 
 	} 
 
-
 	/* The main function that implements QuickSort() 
 	arr[] --> Array to be sorted, 
 	low --> Starting index, 
@@ -83,18 +91,4 @@ class RandomizedQsort
 			System.out.print(arr[i]+" "); 
 		System.out.println(); 
 	} 
-
-	// Driver Code 
-	public static void main(String args[]) 
-	{ 
-		int arr[] = {10, 7, 8, 9, 1, 5}; 
-		int n = arr.length; 
-
-		sort(arr, 0, n-1); 
-
-		System.out.println("Sorted array"); 
-		printArray(arr); 
-	} 
-} 
-
-// This code is contributed by Ritika Gupta.
+}
