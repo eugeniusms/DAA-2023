@@ -16,6 +16,7 @@ class RandomizedQsort {
         in = new InputReader(inputStream);
         OutputStream outputStream = System.out;
         out = new PrintWriter(outputStream);
+		System.gc();
 		Runtime runtime = Runtime.getRuntime();
         
 		// KECIL RANDOM
@@ -32,7 +33,6 @@ class RandomizedQsort {
         sort(arr1, 0, 200-1); 
         long endTime1 = System.nanoTime();
 		// Measure memory usage after sorting
-        System.gc();
         long afterUsedMemory1 = runtime.totalMemory() - runtime.freeMemory();
         // Calculate execution time in milliseconds
         long executionTime1 = (endTime1 - startTime1);
@@ -50,7 +50,6 @@ class RandomizedQsort {
         sort(arr2, 0, 200-1); 
         long endTime2 = System.nanoTime();
 		// Measure memory usage after sorting
-        System.gc();
         long afterUsedMemory2 = runtime.totalMemory() - runtime.freeMemory();
         // Calculate execution time in milliseconds
         long executionTime2 = (endTime2 - startTime2); 
@@ -68,7 +67,6 @@ class RandomizedQsort {
         sort(arr3, 0, 200-1); 
         long endTime3 = System.nanoTime();
 		// Measure memory usage after sorting
-        System.gc();
         long afterUsedMemory3 = runtime.totalMemory() - runtime.freeMemory();
         // Calculate execution time in milliseconds
         long executionTime3 = (endTime3 - startTime3); 
@@ -86,7 +84,6 @@ class RandomizedQsort {
         sort(arr4, 0, 2000-1); 
         long endTime4 = System.nanoTime();
 		// Measure memory usage after sorting
-        System.gc();
         long afterUsedMemory4 = runtime.totalMemory() - runtime.freeMemory();
         // Calculate execution time in milliseconds
         long executionTime4 = (endTime4 - startTime4); 
@@ -104,7 +101,6 @@ class RandomizedQsort {
         sort(arr5, 0, 2000-1); 
         long endTime5 = System.nanoTime();
 		// Measure memory usage after sorting
-        System.gc();
         long afterUsedMemory5 = runtime.totalMemory() - runtime.freeMemory();
         // Calculate execution time in milliseconds
         long executionTime5 = (endTime5 - startTime5); 
@@ -122,7 +118,6 @@ class RandomizedQsort {
         sort(arr6, 0, 2000-1); 
         long endTime6 = System.nanoTime();
 		// Measure memory usage after sorting
-        System.gc();
         long afterUsedMemory6 = runtime.totalMemory() - runtime.freeMemory();
         // Calculate execution time in milliseconds
         long executionTime6 = (endTime6 - startTime6); 
@@ -140,7 +135,6 @@ class RandomizedQsort {
         sort(arr7, 0, 20000-1); 
         long endTime7 = System.nanoTime();
 		// Measure memory usage after sorting
-        System.gc();
         long afterUsedMemory7 = runtime.totalMemory() - runtime.freeMemory();
         // Calculate execution time in milliseconds
         long executionTime7 = (endTime7 - startTime7);
@@ -158,7 +152,6 @@ class RandomizedQsort {
         sort(arr8, 0, 20000-1); 
         long endTime8 = System.nanoTime();
 		// Measure memory usage after sorting
-        System.gc();
         long afterUsedMemory8 = runtime.totalMemory() - runtime.freeMemory();
         // Calculate execution time in milliseconds
         long executionTime8 = (endTime8 - startTime8);
@@ -176,7 +169,6 @@ class RandomizedQsort {
         sort(arr9, 0, 20000-1); 
         long endTime9 = System.nanoTime();
 		// Measure memory usage after sorting
-        System.gc();
         long afterUsedMemory9 = runtime.totalMemory() - runtime.freeMemory();
         // Calculate execution time in milliseconds
         long executionTime9 = (endTime9 - startTime9);
@@ -186,46 +178,55 @@ class RandomizedQsort {
         System.out.println("Execution Time: " + executionTime1 / 1000000 + " ms" + " | " + executionTime1 + " ns");
         System.out.println("Memory Before: " + beforeUsedMemory1 + " bytes");
         System.out.println("Memory After: " + afterUsedMemory1 + " bytes");
+		System.out.println("Memory Used: " + (afterUsedMemory1 - beforeUsedMemory1) + " bytes");
 		// Output results
 		System.out.println("\nKECIL SORTED");
         System.out.println("Execution Time: " + executionTime2 / 1000000 + " ms" + " | " + executionTime2 + " ns");
         System.out.println("Memory Before: " + beforeUsedMemory2 + " bytes");
         System.out.println("Memory After: " + afterUsedMemory2 + " bytes");
+		System.out.println("Memory Used: " + (afterUsedMemory2 - beforeUsedMemory2) + " bytes");
 		// Output results
 		System.out.println("\nKECIL REVERSED");
         System.out.println("Execution Time: " + executionTime3 / 1000000 + " ms" + " | " + executionTime3 + " ns");
         System.out.println("Memory Before: " + beforeUsedMemory3 + " bytes");
         System.out.println("Memory After: " + afterUsedMemory3 + " bytes");
+		System.out.println("Memory Used: " + (afterUsedMemory3 - beforeUsedMemory3) + " bytes");
 		// Output results
 		System.out.println("\nSEDANG RANDOM");
         System.out.println("Execution Time: " + executionTime4 / 1000000 + " ms" + " | " + executionTime4 + " ns");
         System.out.println("Memory Before: " + beforeUsedMemory4 + " bytes");
         System.out.println("Memory After: " + afterUsedMemory4 + " bytes");
+		System.out.println("Memory Used: " + (afterUsedMemory4 - beforeUsedMemory4) + " bytes");
 		// Output results
 		System.out.println("\nSEDANG SORTED");
         System.out.println("Execution Time: " + executionTime5 / 1000000 + " ms" + " | " + executionTime5 + " ns");
         System.out.println("Memory Before: " + beforeUsedMemory5 + " bytes");
         System.out.println("Memory After: " + afterUsedMemory5 + " bytes");
+		System.out.println("Memory Used: " + (afterUsedMemory5 - beforeUsedMemory5) + " bytes");
 		// Output results
 		System.out.println("\nSEDANG REVERSED");
         System.out.println("Execution Time: " + executionTime6 / 1000000 + " ms" + " | " + executionTime6 + " ns");
         System.out.println("Memory Before: " + beforeUsedMemory6 + " bytes");
         System.out.println("Memory After: " + afterUsedMemory6 + " bytes");
+		System.out.println("Memory Used: " + (afterUsedMemory6 - beforeUsedMemory6) + " bytes");
 		// Output results
 		System.out.println("\nBESAR RANDOM");
         System.out.println("Execution Time: " + executionTime7 / 1000000 + " ms" + " | " + executionTime7 + " ns");
         System.out.println("Memory Before: " + beforeUsedMemory7 + " bytes");
         System.out.println("Memory After: " + afterUsedMemory7 + " bytes");
+		System.out.println("Memory Used: " + (afterUsedMemory7 - beforeUsedMemory7) + " bytes");
 		// Output results
 		System.out.println("\nBESAR SORTED");
         System.out.println("Execution Time: " + executionTime8 / 1000000 + " ms" + " | " + executionTime8 + " ns");
         System.out.println("Memory Before: " + beforeUsedMemory8 + " bytes");
         System.out.println("Memory After: " + afterUsedMemory8 + " bytes");
+		System.out.println("Memory Used: " + (afterUsedMemory8 - beforeUsedMemory8) + " bytes");
 		// Output results
 		System.out.println("\nBESAR REVERSED");
         System.out.println("Execution Time: " + executionTime9 / 1000000 + " ms" + " | " + executionTime9 + " ns");
         System.out.println("Memory Before: " + beforeUsedMemory9 + " bytes");
         System.out.println("Memory After: " + afterUsedMemory9 + " bytes");
+		System.out.println("Memory Used: " + (afterUsedMemory9 - beforeUsedMemory9) + " bytes");
 	} 
 
 	// This Function helps in calculating
