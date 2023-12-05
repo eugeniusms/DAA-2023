@@ -1,4 +1,6 @@
 import math
+import time
+import tracemalloc
 
 def partition(values, start_index, total_value, unassigned_value, test_assignment, test_value, best_assignment, best_err):
     # If start_index is beyond the end of the array,
@@ -12,7 +14,7 @@ def partition(values, start_index, total_value, unassigned_value, test_assignmen
             best_err[0] = test_err
             best_assignment[:] = test_assignment[:]
 
-            print(best_err[0])
+            # print(best_err[0])
     else:
         # See if there's any way we can assign
         # the remaining items to improve the solution.
@@ -37,13 +39,46 @@ def partition(values, start_index, total_value, unassigned_value, test_assignmen
                 best_assignment, best_err)
 
 # Example usage:
-values = [1879, 3434, 4407, 2404, 4591, 3055, 2263, 8412, 6360, 4334]
-start_index = 0
-total_value = sum(values)
-unassigned_value = total_value
-test_assignment = [False] * len(values)
-test_value = 0
-best_assignment = [False] * len(values)
-best_err = [float('inf')]
+if __name__ == "__main__":
+    # Membaca file
+    file_name = "TE-2/Datasets/sedang_random.txt"
+    print(f"Dataset: {file_name}")
+    file_input = open(file_name)
+    file_content = file_input.read() 
+    file_input.close()
 
-partition(values, start_index, total_value, unassigned_value, test_assignment, test_value, best_assignment, best_err)
+    values_raw = file_content.split("\n")
+    values = [eval(i) for i in values_raw]
+
+    start_index = 0
+    total_value = sum(values)
+    unassigned_value = total_value
+    test_assignment = [False] * len(values)
+    test_value = 0
+    best_assignment = [False] * len(values)
+    best_err = [float('inf')]
+
+    # Record start time and memory
+    start_time = time.time()
+    tracemalloc.start()
+
+    # Call the partition function
+    partition(values, start_index, total_value, unassigned_value, test_assignment, test_value, best_assignment, best_err)
+
+    # Record end time
+    end_time = time.time()
+
+    # Calculate and print the running time
+    running_time = end_time - start_time
+    print(f"Running time: {running_time} seconds")
+
+    # Selesai eksekusi program
+    # Dapatkan statistik alokasi memori
+    memory_stats = tracemalloc.get_traced_memory()
+    
+    # Stopping the library
+    tracemalloc.stop()
+
+    # Tampilkan hasilnya
+    print("Memory used:", memory_stats[0], "bytes")
+    print("Total allocated memory:", memory_stats[1], "bytes")

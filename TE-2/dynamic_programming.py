@@ -1,3 +1,6 @@
+import time
+import tracemalloc
+
 # Dynamic Programming based python
 # program to partition problem
  
@@ -42,17 +45,50 @@ def partition(arr, n):
     return part[sum // 2][n]
  
  
-# Driver Code
-arr = [1879, 3434, 4407, 2404, 4591, 3055, 2263, 8412, 6360, 4334]
-n = len(arr)
- 
-# Function call
-if partition(arr, n) == True:
-    print("Can be divided into two",
-          "subsets of equal sum")
-else:
-    print("Can not be divided into ",
-          "two subsets of equal sum")
- 
+# Example usage:
+if __name__ == "__main__":
+    # Membaca file
+    file_name = "TE-2/Datasets/besar_random.txt"
+    print(f"Dataset: {file_name}")
+    file_input = open(file_name)
+    file_content = file_input.read() 
+    file_input.close()
+
+    values_raw = file_content.split("\n")
+    values = [eval(i) for i in values_raw]
+    n = len(values)
+
+    # Record start time and memory
+    start_time = time.time()
+    tracemalloc.start()
+
+    result = partition(values, n)
+    
+    # # Function call
+    # if result == True:
+    #     print("Can be divided into two",
+    #         "subsets of equal sum")
+    # else:
+    #     print("Can not be divided into ",
+    #         "two subsets of equal sum")
+
+    # Record end time
+    end_time = time.time()
+
+    # Calculate and print the running time
+    running_time = end_time - start_time
+    print(f"Running time: {running_time} seconds")
+
+    # Selesai eksekusi program
+    # Dapatkan statistik alokasi memori
+    memory_stats = tracemalloc.get_traced_memory()
+    
+    # Stopping the library
+    tracemalloc.stop()
+
+    # Tampilkan hasilnya
+    print("Memory used:", memory_stats[0], "bytes")
+    print("Total allocated memory:", memory_stats[1], "bytes")
+    
 # This code is contributed
 # by mohit kumar 29
